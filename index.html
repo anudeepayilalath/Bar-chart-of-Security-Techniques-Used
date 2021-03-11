@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Document</title>
+    <style>
+        #myChart{
+            border:solid 2px black;
+            width:60% !important;
+            height:40% !important;
+            margin-right:7em;
+            border:none !important;
+        }
+
+        body{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        #firstdiv {
+           width:100%;
+           height:100%;
+           margin:0 auto;
+           display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+           align-items: center;
+       }
+
+       #maindiv{
+         margin-right: 10em;
+         margin-left:10em;
+         width: 100%;
+         height:auto;
+         display: flex;
+         flex-direction:column;
+         justify-content: center;
+         align-items: center;
+       }
+        
+    </style>
+    
+  </head>
+  <body>
+
+    <div id="maindiv">
+        <div id="firstdiv">
+          <h1>Platformable</h1>
+          <img src="./platformable-logo-blue.png" width="260px">
+        </div>
+        <canvas id="myChart" width="400" height="200"></canvas>
+      </div>
+   
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js">
+        
+    </script>
+    <script>
+      var ctx = document.getElementById("myChart").getContext("2d");
+      Chart.defaults.global.defaultFontColor = "rgb(27,1,76)";
+      Chart.defaults.global.defaultFontFamily="Arial"
+      // Chart.defaults.global.legend.padding="60"
+      var myChart = new Chart(ctx, {
+        type: "horizontalBar",
+        fontColor: "rgb(27,1,76)",
+        data: {
+          
+          labels: ["OAuth 2.0", "OpenID Connect", "TLS1.2 or higher", "mTLS", "JWT Token", "2-or 3-legged flows", "Throttling and Rate Limits"],
+          datasets: [
+            {
+              label: "Statistics ",
+              
+              data: [430, 47, 152, 138, 105, 27, 3],
+              pointHoverRadius: 50,
+              backgroundColor: [
+                "rgb(255, 210, 63)",
+                "rgb(255, 210, 63)",
+                "rgb(27,1,76)",
+                "rgb(27,1,76)",
+                "rgb(27,1,76)",
+                "rgb(27,1,76)",
+                "rgb(27,1,76)",
+              ],
+              borderWidth: 0,
+            },
+          ],
+        },
+        options: {
+          legend:{
+              padding:"50"
+          },
+          animation: {
+                            onComplete: function () {
+                                var chartInstance = this.chart,
+                                
+                                ctx = chartInstance.ctx;
+                                ctx.font = Chart.helpers.fontString(Chart.fontSize="30", Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'center';
+                                this.data.datasets.forEach(function (dataset, i)
+                                {
+                                    var meta = chartInstance.controller.getDatasetMeta(i);
+                            
+                                    meta.data.forEach(function (bar, index) {
+                                        var data = dataset.data[index];
+                                       
+                                        
+                                        data > 0 ? ctx.fillText(data, bar._model.x + 30, bar._model.y - 5) : ''
+                                    });
+                                });
+                            }
+                        },
+          scales: {
+            yAxes: [
+              {
+                barThickness : 70,
+                ticks: {
+                  fontSize:35,
+                  fontColor:"rgb(27,1,76)",
+                  fontStyle:"bold"
+              
+                },
+              },
+            ],
+            xAxes: [{
+                ticks: {
+                    fontSize:30,
+                    fontColor:"rgb(27,1,76)",
+                }
+            }]
+          },
+        },
+      });
+
+      
+    </script>
+  </body>
+</html>
