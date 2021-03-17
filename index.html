@@ -30,18 +30,11 @@
            
         }
 
-        #myChart{
-          
-        }
-
         #chartdiv{
           width:50%;
           display: flex;
           justify-content: flex-start;
-         
-          
-          
-            
+  
         }
 
         #headerdiv{
@@ -56,7 +49,7 @@
 
         #p{
             color: grey;
-            font-size: 15px;
+            font-size: 13px;
             text-align:left;
         }
 
@@ -71,6 +64,10 @@
 
         #header-numbers{
           font-weight: 100;
+        }
+
+        h3{
+          font-size: 18px;
         }
 
         @media only screen and (max-width:1650px)
@@ -98,12 +95,12 @@
     <div id="maindiv">
       <div id="headerdiv">
           <div>
-          <h3>Most Common Forms of Security Techniques<br>Used in Open Banking API Design<br><span id="header-numbers">Q1 2021 (N=599)</span></h3>
+          <h3>Most Common Forms of Security Techniques<br><span id="header-numbers">Q1 2021 (N=599)</span></h3>
           </div>
-          <img SRC="platformable-logo-blue.png" width="260px">
+          <img SRC="platformable-logo-blue.png" width="210px">
       </div>
-      <div id="chartdiv"><canvas id="myChart" height="500" ></canvas></div>
-      <div id="descdiv"><p id="p"><span>Methodology:</span>Platformable tracks all banks globally and tallies those that have established an open API platform. We then review how many API products are made available by each bank and tally them according to category,and  measure other API characteristics such as standards and specifications used, developer experience strategies employed, and business model/monetisation approaches. We review each bank at least once every three months.</p></div>
+      <div id="chartdiv"><canvas id="myChart" height="680" ></canvas></div>
+      <div id="descdiv"><p id="p"><span>Methodology:</span> Platformable tracks all banks globally and tallies those that have established an open API platform. We then review how many API products are made available by each bank and tally them according to category,and  measure other API characteristics such as standards and specifications used, developer experience strategies employed, and business model/monetisation approaches. We review each bank at least once every three months.</p></div>
   </div>
    
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.1.2    // exact version"></script>
@@ -153,7 +150,7 @@
 
           title: {
             display: true,
-            text: 'Legend:',
+            
             fontSize:18
             //padding:'5'
         },
