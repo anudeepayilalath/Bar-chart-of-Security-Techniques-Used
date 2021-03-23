@@ -75,6 +75,17 @@
               font-size: 18px;
             }}
 
+
+            @media only screen and (max-width:1165px){
+              #chartdiv{
+                width: 100%;
+              }
+
+              #descdiv{
+                width:100%;
+              }
+
+            }
         @media only screen and (max-width:1055px)
         {
           #headerdiv{
@@ -118,12 +129,12 @@
     <script>
       
       var ctx = document.getElementById("myChart").getContext("2d");
-      Chart.defaults.global.defaultFontColor = "rgb(27,1,76)";
+      Chart.defaults.global.defaultFontColor = "rgb(0, 0, 0)";
       Chart.defaults.global.defaultFontFamily= "Roboto";
       // Chart.defaults.global.legend.padding="60"
       var myChart = new Chart(ctx, {
         type: "horizontalBar",
-        fontColor: "rgb(27,1,76)",
+        fontColor: "rgb(0, 0, 0)",
         data: {
           
           labels: ["OAuth 2.0", "OpenID Connect", "TLS1.2 or higher", "mTLS", "JWT Token", "2-or 3-legged flows", "Throttling and Rate Limits"],
@@ -154,6 +165,8 @@
           ],
         },
         options: {
+          tooltips: {enabled: false},
+          hover: {mode: null},
           responsive:true,
           maintainAspectRatio:false,
          
@@ -208,7 +221,7 @@
                 ticks: {
                   
                   fontSize:14,
-                  fontColor:"rgb(27,1,76)",
+                  fontColor:"rgb(0, 0, 0)",
                   fontStyle:"bold"
               
                 },
@@ -217,7 +230,7 @@
             xAxes: [{
                 ticks: {
                     fontSize:14,
-                    fontColor:"rgb(27,1,76)",
+                    fontColor:"rgb(0, 0, 0)",
                 }
             }]
           },
